@@ -1,35 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class Tile : MonoBehaviour
 {
-    public GameObject[] gems;
-
+    public Gem[] gems;
     public bool isSpawned = false;
 
-    
     void Start()
     {
         GameManager.Instance.tileList.Add(this);
     }
 
-    public void SpawnGem(){
-        float randomNumber = Random.value;
-        if (randomNumber < 0.5f) {
-            gems[0].SetActive(true);
-            gems[0].GetComponent<Gem>().StartGem();
+    public void SpawnGem()
+    {
+        float totalSpawnChance = 0;
+        foreach (Gem gem in gems)
+        {
+            totalSpawnChance += gem.spawnChance;
         }
-        else if (randomNumber < 0.85f) {
-            gems[1].SetActive(true);
-            gems[1].GetComponent<Gem>().StartGem();
-        } 
-        else {
-           gems[2].SetActive(true);
-           gems[2].GetComponent<Gem>().StartGem();
+
+        float randomNumber = Random.value * totalSpawnChance;
+        float birikmis = 0;
+
+        foreach (Gem gem in gems)
+        {
+            birikmis += gem.spawnChance;
+            if (randomNumber <= birikmis)
+            {
+                gem.gameObject.SetActive(true);
+                gem.StartGem();
+                isSpawned = true;
+                break;
+            }
         }
-        isSpawned = true;
-    }
-
-
+    }   
 }

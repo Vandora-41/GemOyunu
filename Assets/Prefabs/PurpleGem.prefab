@@ -37,6 +37,11 @@ PrefabInstance:
       propertyPath: salePrice
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 2237058855129827633, guid: 5828b1c44eed79447b2f80fc995a367d,
+        type: 3}
+      propertyPath: spawnChance
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8470725829911222780, guid: 5828b1c44eed79447b2f80fc995a367d,
         type: 3}
       propertyPath: m_RootOrder

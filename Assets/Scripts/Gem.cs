@@ -9,6 +9,7 @@ public class Gem : MonoBehaviour
     public string gemName;
     public float salePrice;
     public Image gemIcon;
+    public float spawnChance = 0;
     public GameObject gemModel;
     public int id;
 

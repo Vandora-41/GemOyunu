@@ -75,7 +75,7 @@ public class GridSystem : MonoBehaviour
 }
 
 
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(GridSystem))]
 public class GridSystemEditor : Editor
 {
@@ -100,3 +100,4 @@ public class GridSystemEditor : Editor
         }
     }
 }
+#endif

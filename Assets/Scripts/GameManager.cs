@@ -22,13 +22,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake() {
         Instance = this;
-
-        if(!PlayerPrefs.HasKey("GreenGem")){
-            PlayerPrefs.SetInt("GreenGem", 0);
-            PlayerPrefs.SetInt("PurpleGem", 0);
-            PlayerPrefs.SetInt("YellowGem", 0);
-            PlayerPrefs.SetFloat("Cash",0);
-        }
         paraText.text = PlayerPrefs.GetFloat("Cash").ToString("F0");
     }
 
@@ -97,6 +90,7 @@ public class GameManager : MonoBehaviour
     }
 
 }
+#if UNITY_EDITOR
 [CustomEditor(typeof(GameManager))]
 public class GameManagerEditor : Editor
 {
@@ -111,3 +105,4 @@ public class GameManagerEditor : Editor
         }
     }
 }
+#endif
